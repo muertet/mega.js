@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset=utf-8 />
+		<title>Mega API Demo</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<script type="text/javascript" src="js/megaDep.js"></script>
+		<script type="text/javascript" src="js/site.js"></script>
+		<script type="text/javascript" src="js/mega.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	</head>
+	<body>
+		<div id="customPopup">
+			<div id="hideClear"></div>
+			<div id="cfPrompt">
+				<div id="cftitleBar"><h2>Login to Mega:</h2> </div>
+				<div id="promptBody">
+					<br /> <input id="login_email" type="text" placeholder="Email Address"> <br /> 
+					<input id="login_password" type="password" placeholder="Password"> <br />
+					<button style="font-size:28px" onclick="Site.login();">Login</button>
+				</div>
+			</div>
+		</div>
+		<div id="mainContainer">
+
+			<div id="mainTools">
+				<span id="toolOff">
+					Upload File: <input type="file" id="fileselect1" style="height:29px; width:90px; cursor:hand;" size="42" multiple="">
+				    <span style="position:absolute;right:90px;"><button onclick="Site.backToRoot()">Go to Root Folder</button></span>
+
+					<br/>Create New Folder:
+					<input type="text" id="newFolderName">
+					<button onclick="Site.createFolder()">Add Folder</button>
+				</span>
+			</div>
+			<table id="fileTable">
+				<tr>
+					<th>Filename:</th>
+					<th>File ID:</th>
+					<th>Download:</th>
+					<th>Delete:</th>
+				</tr>
+			</table>
+		</div>
+		<script type="text/javascript" src="js/cAPI.js"></script>
+		<script>
+		function runProgress(title, subtitle, progLabel) {
+			runPrompt(title, '<h2>' + subtitle + '</h2> <span style="position:absolute;left:20px;;bottom:10px"> <span id="progLabel">' + progLabel + '</span><br /> <progress max="100" value="0" id="cfProgress"> <strong>Progress: 0% done.</strong> </progress> </span>');
+		}
+		Site.init();
+		</script>
+		<a href="" download="filename" id="dllink" style="display:none;"></a>
+	</body>
+
+</html>
